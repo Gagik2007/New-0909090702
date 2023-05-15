@@ -50,21 +50,20 @@ const url = 'https://api.github.com/users';
     const [users, setUsers] = useState([]);
 
     useEffect(()=>{
-       let promise= fetch('https://api.github.com/users');
-       promise.then ((response) =>{
+       let surprise= fetch('https://api.github.com/users');
+       surprise.then ((response) =>{
         return response.json()
        }).then((response)=>{
-        console.log(response);
         setUsers(response)
        })
     }, [])
     return(
       <>
       {
-        users.map((item, index)=>{
+        users.map((item)=>{
           return(
             <>
-            <li>{item.id}</li>
+            <li>{item.id} 13214534</li>
             <img src={item.avatar_url}  />
             </>
           )
