@@ -108,3 +108,86 @@
 
 
 // export default App;
+// import { useState, useMemo } from "react";
+
+// function App(){
+//   const [name, setName] = useState("");
+//   const [surname, setSurame] = useState("");
+//   const [count, setCount] = useState(0);
+
+//   const  user= useMemo(()=>{
+//     console.log('ok');
+//     return {
+//       name: name,
+//       surname: surname
+//     }
+//   }, [name, surname]);
+
+//   return(
+//     <div>
+//       <button onClick={()=> setCount(count + 1)}>{count}</button>
+//       <br/>
+//       <input
+//       type="text"
+//       value={name}
+//       onChange={e => setName(e.target.value)}
+//       />
+//        <input
+//       type="text"
+//       value={surname}
+//       onChange={e => setSurame(e.target.value)}
+//       />
+//       <p>{JSON.stringify(user)}</p>
+//     </div>
+//   )
+// }
+// export default App
+
+import React, { useState } from "react";
+import "./App.css"
+ 
+function App() {
+  const [list, setList] = useState([]);
+  const [input, setInput] = useState("");
+ 
+  const addTodo = (todo) => {
+    const newTodo = {
+      id: Math.random(),
+      todo: todo,
+    };
+ 
+  
+    setList([...list, newTodo]);
+ 
+    setInput("");
+  };
+ 
+  const deleteTodo = (id) => {
+   
+    const newList = list.filter((todo) => todo.id !== id);
+ 
+    setList(newList);
+  };
+ 
+  return (
+    <div>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button onClick={() => addTodo(input)}>Add</button>
+      <ul>
+        {list.map((todo) => (
+          <li key={todo.id}>
+            {todo.todo}
+            <button onClick={() => deleteTodo(todo.id)}>-</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+ 
+export default App;
+ 

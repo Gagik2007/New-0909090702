@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+input{
+  border: 2px solid green;
+  border-radius: 7px;
+}
+
+button{
+  background-color: darkslategray;
+  color: antiquewhite;
+  border: 2px solid rgb(0, 102, 128);
+}
+
